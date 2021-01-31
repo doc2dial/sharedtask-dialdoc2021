@@ -1,0 +1,17 @@
+[
+    {
+        "id": "dea7174409afbfe0af0ace21e7f318ae_1",
+        "prediction_text": "Because we all pay indirectly for crashes involving uninsured motorists , New York State requires every motorist to maintain auto insurance every single day a vehicle is registered. DMV works with insurance companies to electronically monitor your insurance coverage ,",
+        "no_answer_probability": 0.883711576461792
+    },
+    {
+        "id": "dea7174409afbfe0af0ace21e7f318ae_9",
+        "prediction_text": "we mail you an insurance inquiry letter to allow you to clear up the problem. We send 500,000 inquiry letters a year. ",
+        "no_answer_probability": 0.0004379140445962548
+    },
+    {
+        "id": "dea7174409afbfe0af0ace21e7f318ae_12",
+        "prediction_text": "",
+        "no_answer_probability": 1.0
+    }
+]

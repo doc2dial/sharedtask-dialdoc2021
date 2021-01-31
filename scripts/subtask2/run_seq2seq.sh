@@ -1,0 +1,24 @@
+
+python finetune_trainer.py \
+--data_dir seq2seq_files \
+--cache_dir $YOUR_CACHE_DIR \
+--output_dir $YOUR_OUTPUT_DIR \
+--num_train_epochs 10 \
+--model_name_or_path facebook/bart-large-cnn \
+--learning_rate 3e-5 \
+--adam_epsilon 1e-06 \
+--do_train \
+--do_eval \
+--per_device_train_batch_size=1 \
+--per_device_eval_batch_size=1 \
+--overwrite_output_dir \
+--adam_eps 1e-06 \
+--max_source_length 1024 \
+--max_target_length 50 \
+--val_max_target_length 50 \
+--test_max_target_length 50 \
+--task translation \
+--warmup_steps 500 \
+--evaluation_strategy epoch \
+--predict_with_generate \
+--save_total_limit 3
