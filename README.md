@@ -29,7 +29,7 @@ The task is to generate the next agent response in natural language given dialog
 
 - **Output**: dialog utterance.
 
-- **Evaluation**: `sacrebleu` and `human evaluation`. Please refer to [script](scripts/sharedtask_utils.py) for more details.
+- **Evaluation**: `sacrebleu` and `human evaluation`. Please refer to [script](scripts/sharedtask_utils.py) for more details. Stay tuned for more details about human evaluations.
 
 
 ## Baselines
