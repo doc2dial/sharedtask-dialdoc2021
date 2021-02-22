@@ -1,19 +1,18 @@
 # DialDoc21: Shared Task on Doc2Dial Dataset
 
-[DialDoc21 Shared Task](https://doc2dial.github.io/workshop2021/shared.html) at [ACL 2021](https://2021.aclweb.org) includes two subtasks for building goal-oriented document-grounded dialogue systems. The first subtask is to predict the grounding in the given document for next agent response; the second subtask is to generate agent response in natural language given the contexts.
+[DialDoc21 Shared Task](https://doc2dial.github.io/workshop2021/shared.html) at [ACL 2021](https://2021.aclweb.org) includes two subtasks for building goal-oriented document-grounded dialogue systems. The first subtask is to predict the grounding in the given document for next agent response; the second subtask is to generate agent response in natural language given document-based and dialogue-based contexts.
 
 ## Data
 
 This shared task is based on Doc2Dial v1.0.1 in folder [`data/doc2dial`](data/doc2dial). For more information about the dataset, please refer to [README](data/doc2dial/DATA_README.md), [paper](https://arxiv.org/abs/2011.06623) and [Doc2Dial Project Page](https://doc2dial.github.io/).
 
-
-**Note**: you can choose to utilize other public datasets in addition to Doc2Dial data for training. See example [here](https://mrqa.github.io/2019/shared).
+**Note**: you can choose to utilize other public datasets in addition to Doc2Dial data for training. Please examples [here](https://mrqa.github.io/2019/shared).
 
 ## Shared Task
 
 ### Subtask 1
 
-The task is to predict the knowledge grounding in form of document span for the next agent response given dialogue history and the associated documents.
+The task is to predict the knowledge grounding in form of document span for the next agent response given dialogue history and the associated document.
 
 - **Input**: the associated document and dialogue history.
 
@@ -63,19 +62,11 @@ conda install -c conda-forge nvidia-apex
 
 ### **Load Dataset**
 
-You can use [Huggingface Dataset](https://huggingface.co/docs/datasets/loading_datasets.html) to load Doc2Dial datasets. 
+You can use [Huggingface Dataset](https://huggingface.co/docs/datasets/loading_datasets.html) to load Doc2Dial datasets. The latest [source code](https://github.com/huggingface/datasets/tree/master/datasets/doc2dial) includes the code for loading Doc2Dial v1.0.1.  
 
-For loading v1.0.1 for subtask 1, you need to point to `scripts/datasets/doc2dial/doc2dial.py`.
-
-```python
-from datasets import load_dataset
-datasets = load_dataset("scripts/datasets/doc2dial/", "doc2dial_rc", cache_dir="YOUR_LOCAL_CACHE")
-```
-
-The [script](scripts/sharedtask_utils.py) includes how to obtain ID and expected output format given an agent turn for prediction or generation task.
+The [script](scripts/sharedtask_utils.py) shows how to obtain the ground truth of the given IDs for evaluations of Subtask 1 and Subtask 2. IDs are `{dial_id}_{turn_id}`, where `turn_id` is of the turn right before the next agent turn for grounding prediction (Subtask 1) or generation (Subtask 2). For the withheld test set for the [challenge](https://eval.ai/web/challenges/challenge-page/793/overview), the data was collected in the same process as training and validation sets; the ground truth would be obtained the same way as in the [script](scripts/sharedtask_utils.py).
 
 ### **Run Baseline for Subtask 1**
-
 
 > Run [HuggingFace QA](https://github.com/huggingface/transformers/tree/master/examples/question-answering) on Doc2Dial
 
@@ -154,4 +145,4 @@ The [script](scripts/sharedtask_utils.py) includes how to obtain ID and expected
 
 ## About Participation
 
-For more up-to-date information about participating DialDoc21 Shared Task, please check our [workshop page](https://doc2dial.github.io/workshop2021/shared.html).
+For more up-to-date information about participating DialDoc21 Shared Task, please refer to our [workshop page](https://doc2dial.github.io/workshop2021/shared.html).

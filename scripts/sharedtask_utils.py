@@ -5,21 +5,18 @@ from datasets import load_dataset
 from datasets import load_metric
 
 
-LOCAL_DATA_LOADER_DOC2DIAL = "datasets/doc2dial"
-
-def sharedtask1_metrics(prediction_json, split, cache_dir):
+def sharedtask1_metrics(prediction_json, split, cache_dir=None):
     metric = load_metric("squad_v2")
 
     predictions = json.load(open(prediction_json, "r"))
     d_id_prediction = {}
-    model_predictions = []
     for ele in predictions:
         d_id_prediction[ele["id"]] = 0
 
     references = []
     d_id_reference = {}
     dataset = load_dataset(
-        LOCAL_DATA_LOADER_DOC2DIAL,
+        "doc2dial",
         name="doc2dial_rc",
         split=split,
         ignore_verifications=True,
@@ -60,10 +57,10 @@ def sharedtask2_metrics(prediction_json, split, cache_dir):
     for ex in predictions:
         model_predictions.append(ex["utterance"])
         d_id_prediction[ex["id"]] = 0
-        
+
     references_lst = []
     dataset = load_dataset(
-        LOCAL_DATA_LOADER_DOC2DIAL,
+        "doc2dial",
         name="dialogue_domain",
         split=split,
         ignore_verifications=True,
@@ -72,7 +69,7 @@ def sharedtask2_metrics(prediction_json, split, cache_dir):
     for ex in dataset:
         for turn in ex["turns"]:
             if turn["role"] == "agent":
-                id_ = "{}_{}".format(ex["dial_id"], turn["turn_id"])
+                id_ = "{}_{}".format(ex["dial_id"], turn["turn_id"] - 1)
                 if id_ not in d_id_prediction:
                     continue
                 references_lst.append([turn["utterance"]])
