@@ -68,7 +68,7 @@ The [script](scripts/sharedtask_utils.py) shows how to obtain the ground truth o
 
 ### **Run Baseline for Subtask 1**
 
-> Run [HuggingFace QA](https://github.com/huggingface/transformers/tree/master/examples/question-answering) on Doc2Dial
+> Run [HuggingFace QA](https://github.com/huggingface/transformers/tree/master/examples/pytorch/question-answering) on Doc2Dial
 
 - For fine-tuning Bert on Doc2Dial,
 
